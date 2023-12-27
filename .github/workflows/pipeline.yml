@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  
+  push:
+  workflow_dispatch:
+
+jobs:
+  
+  pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - uses: actions/checkout@v3
+
+      - name: CheckOut
+        run: |
+          echo "CheckOut@v3"
+
+      - name: Build
+        run: |
+          chmod +x gradlew
+          ./gradlew build sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}}
+      
+      #- name: SonarCloud
+    
