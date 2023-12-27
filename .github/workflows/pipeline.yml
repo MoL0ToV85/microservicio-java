@@ -28,3 +28,4 @@ jobs:
         run: |
           chmod +x gradlew
           ./gradlew sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}}
+# Se agrega el secreto, veamos si funciona.
