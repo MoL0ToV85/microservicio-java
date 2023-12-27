@@ -30,8 +30,8 @@ sonar {
 }
 
 jacocoTestReport {
-	dependsOn test
-		report {
+    dependsOn test // tests are required to run before generating the report
+	report {
 			html.enable true
 			xml.enable true
 		}
