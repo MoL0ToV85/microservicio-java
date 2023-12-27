@@ -18,10 +18,13 @@ jobs:
         run: |
           echo "CheckOut@v3"
 
-      - name: Build
+      - name: Build & U.Test
         run: |
           chmod +x gradlew
-          ./gradlew build sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}}
+          ./gradlew build
+          ./gradlew test
       
-      #- name: SonarCloud
-    
+      - name: SonarCloud
+        run: |
+          chmod +x gradlew
+          ./gradlew sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}}
