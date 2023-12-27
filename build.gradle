@@ -37,6 +37,16 @@ jacocoTestReport {
 		}
 }
 
+jacocoTestCoverageVerification {
+	violationRules {
+		rule {
+			limit {
+				minimum = 0.70
+			}
+		}
+	}
+}
+
 test {
 	useJUnitPlatform()
 }
