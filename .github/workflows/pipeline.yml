@@ -14,16 +14,12 @@ jobs:
     
       - uses: actions/checkout@v3
 
-      - name: CheckOut
-        run: |
-          echo "CheckOut@v3"
-
-      - name: Build & U.Test
+      - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew build
+          ./gradlew build --info --stacktrace
       
-      - name: SonarCloud
+      - name: SonarCloud Unit Test & Code Review
         run: |
           chmod +x gradlew
           ./gradlew jacocoTestReport sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}} --info --stacktrace
