@@ -9,6 +9,7 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public @ResponseBody String greeting() {
+		string clave = "12345";
 		return "Hello, World";
 	}
 
