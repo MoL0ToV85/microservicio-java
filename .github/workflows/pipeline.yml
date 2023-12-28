@@ -50,12 +50,6 @@ jobs:
 #            username: ${{ secrets.DOCKER_USERNAME }}
 #            password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Test ruta
-        run: |
-            cd $GITHUB_WORKSPACE/build/libs/
-            ls -lt
-
-
       - name: Copia de Jar a Raiz de proyecto
         run: |
             cp $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar .
