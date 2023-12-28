@@ -67,7 +67,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: matt-ball/newman-action@master
+
+      - name: Test con Postman 
+        uses: matt-ball/newman-action@master
         with:
           collection: Tarea Final.postman_collection.json
-          environment: 
+          environment:
+
+      - name: Test con JMeter
+        uses: QAInsights/PerfAction@v5.6.2
+        with:
+          test-plan-path: JMETER - Plan de pruebas.jmx
+          args: ""
