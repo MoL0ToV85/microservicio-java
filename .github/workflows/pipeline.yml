@@ -24,7 +24,7 @@ jobs:
           chmod +x gradlew
           ./gradlew jacocoTestCoverageVerification
       
-      - name: SonarCloud Unit Test & Code Review
+      - name: SonarCloud Code Review
         run: |
           chmod +x gradlew
           ./gradlew sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}} --info --stacktrace
@@ -36,4 +36,13 @@ jobs:
           SONAR_HOST_URL: https://sonarcloud.io
         with:
           scanMetadataReportFile: build/sonar/report-task.txt
-# Se agrega el secreto, veamos si funciona.
+  deploy: 
+    runs-on: self-hosted 
+    needs: pipeline
+    steps: 
+
+    - uses: actions/checkout@v3
+    
+    - name: Deploy to Minikube
+      run: |
+        kubectl apply -f deployment.yml
