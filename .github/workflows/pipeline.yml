@@ -74,7 +74,7 @@ jobs:
         uses: 'google-github-actions/deploy-cloudrun@v2'
         with:
           image: 'gcr.io/suracrossit-2/testing-web'
-          service: 'testing-web-MZOFFOLI'
+          service: 'testing-web-mzoffoli'
 
 #      - name: Deploy on C.R.
 #        run: |
