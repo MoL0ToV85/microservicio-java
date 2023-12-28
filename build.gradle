@@ -41,11 +41,16 @@ jacocoTestCoverageVerification {
 	violationRules {
 		rule {
 			limit {
-				minimum = 0.70
+				minimum = 0.99
 			}
 		}
 	}
 }
+
+tasks.withType(Test) {
+	finalizedBy jacocoTestReport
+}
+jacocoTestCoverageVerification.dependsOn jacocoTestReport
 
 test {
 	useJUnitPlatform()
