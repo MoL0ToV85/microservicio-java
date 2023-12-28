@@ -38,7 +38,7 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: build
-          path: $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar
+          path: ${{ GITHUB_WORKSPACE }}/build/libs/testing-web-0.0.1-SNAPSHOT.jar
 
   Deploy:
     runs-on: ubuntu-latest
