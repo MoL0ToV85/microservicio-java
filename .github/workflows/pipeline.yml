@@ -37,6 +37,7 @@ jobs:
 
   ContainerPushDeploy:
     runs-on: google/cloud-sdk
+    needs: BuildAndTest
     steps:
       - uses: actions/checkout@v3
 
