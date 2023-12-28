@@ -18,4 +18,4 @@ spec:
       - name: microservicio-java
         image: mzoffoli/microservicio-java:latest
         ports:
-        - containerPort: 8085
+        - containerPort: 8081
