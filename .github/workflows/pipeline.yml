@@ -17,12 +17,17 @@ jobs:
       - name: Build
         run: |
           chmod +x gradlew
-          ./gradlew build --info --stacktrace
+          ./gradlew build
+
+      - name: Unit Test
+        run: |
+          chmod +x gradlew
+          ./gradlew jacocoTestCoverageVerification
       
       - name: SonarCloud Unit Test & Code Review
         run: |
           chmod +x gradlew
-          ./gradlew jacocoTestReport sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}} --info --stacktrace
+          ./gradlew sonar -Dsonar.token=${{secrets.TOKEN_SONARCLOUD}} --info --stacktrace
 
       - name: SonarCloud Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
