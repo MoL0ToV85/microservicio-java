@@ -35,15 +35,10 @@ jobs:
         with:
           scanMetadataReportFile: build/sonar/report-task.txt
       
-      - name: Test workspace
-        run: |
-          echo ${{ github.workspace }}
-          echo $GITHUB_WORKSPACE
-
       - uses: actions/upload-artifact@v3
         with:
           name: build
-          path: ${{ GITHUB_WORKSPACE }} + '/build/libs/testing-web-0.0.1-SNAPSHOT.jar'
+          path: ${{github.workspace}}/build/libs/testing-web-0.0.1-SNAPSHOT.jar'
 
   Deploy:
     runs-on: ubuntu-latest
