@@ -27,7 +27,7 @@ jobs:
       - name: SonarCloud Code Review
         run: |
           chmod +x gradlew
-          ./gradlew sonar -Dsonar.token=${{ secrets.TOKEN_SONARCLOUD }} --info --stacktrace
+          ./gradlew sonar -Dsonar.token=${{ secrets.TOKEN_SONARCLOUD }}
 
       - name: SonarCloud Quality Gate check
         uses: sonarsource/sonarqube-quality-gate-action@master
@@ -58,18 +58,18 @@ jobs:
 
       - name: Copia de Jar a Raiz de proyecto
         run: |
-            cp $GITHUB_WORKSPACE/build/libs/spring-MICROSERVICIO-JAVA-0.0.1-SNAPSHOT.jar .
-            chmod 777 spring-MICROSERVICIO-JAVA-0.0.1-SNAPSHOT.jar
+            cp $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar .
+            chmod 777 testing-web-0.0.1-SNAPSHOT.jar
             ls -lt 
         
       - name: Docker Build
         run: | 
-            docker build --tag mzoffoli/MICROSERVICIO-JAVA:latest .
+            docker build --tag mzoffoli/testing-web:latest .
             docker images
   
       - name: Docker Push
         run: |
-            docker push mzoffoli/MICROSERVICIO-JAVA 
+            docker push mzoffoli/testing-web 
           
   
 #  deploy: 
