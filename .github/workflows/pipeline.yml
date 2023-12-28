@@ -77,6 +77,6 @@ jobs:
       - name: Test con JMeter
         uses: rbhadti94/apache-jmeter-action@v0.5.0
         with:
-          testFilePath: ./JMETER - Plan de pruebas.jmx
+          testFilePath: jmeter.jmx
           outputReportsFolder: reports/
           args: ""
