@@ -9,7 +9,7 @@ jobs:
   
   Pruebas:
     env:
-      path_jar : '${{ GITHUB_WORKSPACE }}/build/libs/testing-web-0.0.1-SNAPSHOT.jar'
+      path_jar : ${{ GITHUB_WORKSPACE }} + '/build/libs/testing-web-0.0.1-SNAPSHOT.jar'
     runs-on: ubuntu-latest
     steps:
       - name: echooooossss
