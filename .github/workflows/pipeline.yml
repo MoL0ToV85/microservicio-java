@@ -7,15 +7,10 @@ on:
 
 jobs:
   
-  BuildAndTest:
+  BuildTestContainerPushDeploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-
-      - name: test
-        run: |
-          echo $GITHUB_WORKSPACE
-          echo ${{ github.workspace }}
 
       - name: Build
         run: |
@@ -38,18 +33,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.TOKEN_SONARCLOUD }}
           SONAR_HOST_URL: https://sonarcloud.io
         with:
-          scanMetadataReportFile: build/sonar/report-task.txt
-      
-      - uses: actions/upload-artifact@v3
-        with:
-          name: build
-          path: ${{github.workspace}}/build/libs/testing-web-0.0.1-SNAPSHOT.jar'
-
-  Deploy:
-    runs-on: ubuntu-latest
-    needs: BuildAndTest
-    steps:
-      - uses: actions/checkout@v3       
+          scanMetadataReportFile: build/sonar/report-task.txt 
 
       - name: Login to GCR
         uses: docker/login-action@v3
@@ -58,12 +42,9 @@ jobs:
               username: _json_key
               password: ${{ secrets.SA_GCP_CR }}
 
-      - uses: actions/upload-artifact@v3
-        with:
-          name: build
       - name: Copia de Jar a Raiz de proyecto
         run: |
-            cp testing-web-0.0.1-SNAPSHOT.jar .
+            cp $GITHUB_WORKSPACE/build/libs/testing-web-0.0.1-SNAPSHOT.jar .
             chmod 777 testing-web-0.0.1-SNAPSHOT.jar
         
       - name: Docker Build & Push
