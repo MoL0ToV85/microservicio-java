@@ -8,6 +8,7 @@ on:
 jobs:
   
   BuildTestContainerPushDeploy:
+    needs: Test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -62,7 +63,11 @@ jobs:
           image: 'gcr.io/suracrossit-2/testing-web'
           service: 'testing-web-mzoffoli'
   
-#  Test:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - uses: actions/checkout@v3
+  Test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: matt-ball/newman-action@master
+        with:
+          collection: Tarea Final.postman_collection.json
+          environment: 

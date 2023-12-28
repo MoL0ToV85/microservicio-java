@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "ad8a200a-af46-490c-8cd7-b5bc12a1b3b9",
+		"name": "Tarea Final",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5919072"
+	},
+	"item": [
+		{
+			"name": "url Directa",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body\", function(){\r",
+							"    pm.response.to.have.body(\"Hola, Marco Zoffoli\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testing-web-mzoffoli-ze5djneyia-uc.a.run.app/",
+					"protocol": "https",
+					"host": [
+						"testing-web-mzoffoli-ze5djneyia-uc",
+						"a",
+						"run",
+						"app"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "url Greeting",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Body\", function(){\r",
+							"    pm.response.to.have.body(\"Hola, Marco Zoffoli\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"status code 200\", function(){\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://testing-web-mzoffoli-ze5djneyia-uc.a.run.app/greeting",
+					"protocol": "https",
+					"host": [
+						"testing-web-mzoffoli-ze5djneyia-uc",
+						"a",
+						"run",
+						"app"
+					],
+					"path": [
+						"greeting"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
