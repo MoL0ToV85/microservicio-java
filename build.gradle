@@ -2,8 +2,8 @@ plugins {
 	id 'org.springframework.boot' version '2.6.3'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 	id 'java'
-	id 'org.sonarqube' version '4.2.1.3168'
 	id 'jacoco'
+	id 'org.sonarqube' version '4.2.1.3168'
 }
 
 group = 'com.example'
@@ -31,9 +31,9 @@ sonar {
 
 jacocoTestReport {
     dependsOn test // tests are required to run before generating the report
-	report {
-			html.enable true
-			xml.enable true
+	reports {
+			html.enabled true
+			xml.enabled true
 		}
 }
 
